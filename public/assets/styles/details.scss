@@ -1,0 +1,49 @@
+.details-heading{
+  padding: 20px;
+  border-bottom: solid black 1px;
+  height: 85px;
+  h2{
+    float:left;
+    display:inline;
+  }
+  div{
+    float:right;
+    display:inline;
+  }
+}
+
+.list-element{
+  margin:20px;
+  border: solid black 1px;
+  height:180px;
+  padding:20px;
+  background-color:rgba(246, 226, 146, 0.43);
+  .price{
+    float:left;
+  }
+  .return{
+    float:left;
+    display:inline;
+    margin-left:30px;
+  }
+  .logo{
+    display:inline;
+    float:right;
+    div{
+      width: 125px;
+      height: 95px;
+      overflow: hidden;
+    }
+    input{
+      margin-top:5px;
+      width: 100%;
+      background-color:#061775;
+      color:white;
+    }
+  }
+}
+
+h5{
+  margin-left: 30%;
+  margin-top: 25%;
+}

@@ -1,0 +1,21 @@
+<div class="flight-way">
+  <input type="button" value="One Way" ng-model="filters.oneway" ng-click="filters.toggleViews('oneway')" ng-class="filters.oneway? 'active':''" class="btn-way-one" id="oneWay"/>
+  <input type="button" value="Return" ng-model="filters.twoway" ng-click="filters.toggleViews('twoway')" ng-class="filters.twoway? 'active':''" class="btn-way-one btn-way-two" id="twoWay"/>
+</div>
+<div class="filters">
+  <input ng-model="filters.originCity" class="container" placeholder="Enter origin city" ng-focus="filters.originCityFlag=false" />
+  <span class="error" ng-if="filters.originCityFlag">Please mention the origin city.</span>
+  <input ng-model="filters.destinationCity"  class="container" placeholder="Enter destn. city"  ng-focus="filters.destinationCityFlag=false" />
+  <span class="error" ng-if="filters.destinationCityFlag">Please mention the destination city.</span>
+  <input type="date" ng-model="filters.departureDate" class="container"  ng-focus="filters.departureDateFlag=false" />
+  <span class="error" ng-if="filters.departureDateFlag">Please mention departure date.</span>
+  <input type="date" min="06/09/2017" ng-model="filters.returnDate" class="container"  ng-show="filters.twoway" ng-focus="filters.returnDateFlag=false" />
+  <span class="error" ng-if="filters.returnDateFlag && filters.twoway">Please mention return date.</span>
+  <input type="number" min="0" ng-model="filters.noOfPassengers" class="container"  ng-focus="filters.noOfPassengersFlag=false" />
+  <span class="error" ng-if="filters.noOfPassengersFlag">Please mention no. of passengers.</span>
+  <input type="button" value="Search" class="btnSearch" ng-click="filters.fetchResults()"/>
+</div>
+<div class="range-filter">
+  <h5>Refine Flight Search</h5>
+  <rzslider class="custom-slider rz-slider" rz-slider-model="filters.slider.minValue" rz-slider-high="filters.slider.maxValue" rz-slider-options="filters.slider.options"></rzslider>
+</div>

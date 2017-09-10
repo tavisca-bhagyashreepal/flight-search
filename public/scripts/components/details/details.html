@@ -1,0 +1,54 @@
+<div ng-if="details.details">
+  <div class="details-heading">
+    <h2 style="text-transform:capitalize;">{{details.details.origin_city}} > {{details.details.destination_city}} <span ng-if="details.details.return_date"> > {{details.details.origin_city}}</span></h2>
+    <div>
+      <h6>Depart: {{details.details.departure_date}}</h6>
+      <h6 ng-if="details.details.return_date">Return: {{details.details.return_date}}</h6>
+    </div>
+  </div>
+  <div>
+    <!-- flights list-->
+      <div class="list-element" ng-repeat="flight in details.flightListToDisplay track by $index">
+        <div class="price"><h4 ng-if="!details.returnFlights.length">Rs.{{flight.price}}</h4><h4 ng-if="details.returnFlights.length">Rs.{{flight.price + details.returnFlights[$index].price}}</h4>
+          <div class="price">
+            <div>{{flight.flight_id}}</div>
+            <div>{{flight.origin_city}} > {{flight.destination_city}}</div>
+            <div>Depart: {{flight.departure_time}}</div>
+            <div>Arrive: {{flight.arrival_time}}</div>
+          </div>
+          <div class="return" ng-if="details.returnFlights.length">
+            <div>{{details.returnFlights[$index].flight_id}}</div>
+            <div>{{details.returnFlights[$index].origin_city}} > {{details.returnFlights[$index].destination_city}}</div>
+            <div>Depart: {{details.returnFlights[$index].departure_time}}</div>
+            <div>Arrive: {{details.returnFlights[$index].arrival_time}}</div>
+          </div>
+        </div>
+        <div class="logo">
+          <div><img src="./assets/images/flight.jpg" /></div>
+          <input type="button" value="Book this Flight" />
+        </div>
+      </div>
+      <!-- if no. of return flights are greater the the forward flights-->
+      <div class="list-element" ng-if="details.returnFlights.length > details.flightListToDisplay.length" ng-repeat="flight in details.returnFlights | limitTo: (details.returnFlights.length - details.flightListToDisplay.length): $index" ng-init="$index = details.flightListToDisplay.length">
+        <div class="price"><h4>Rs.{{details.returnFlights[$index].price}}</h4>
+          <div class="price" ng-if="details.returnFlights.length">
+            <div>{{details.returnFlights[$index].flight_id}}</div>
+            <div>{{details.returnFlights[$index].origin_city}} > {{details.returnFlights[$index].destination_city}}</div>
+            <div>Depart: {{details.returnFlights[$index].departure_time}}</div>
+            <div>Arrive: {{details.returnFlights[$index].arrival_time}}</div>
+          </div>
+        </div>
+        <div class="logo">
+          <div><img src="./assets/images/flight.jpg" /></div>
+          <input type="button" value="Book this Flight" />
+        </div>
+      </div>
+      <!-- if no flight for given search is present-->
+      <div ng-if="details.flightListToDisplay.length==0 && details.returnFlights.length ==0">
+        <h5>No flight available for the given details.</h5>
+      </div>
+  </div>
+</div>
+<div ng-if="!details.details" style="height:100%">
+  <h5>Flight details will be displayed here.</h5>
+</div>

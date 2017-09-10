@@ -1,0 +1,64 @@
+.flight-way{
+  margin-top: 20px;
+  margin-left: 20px;
+  .btn-way-one{
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    width:20%;
+  }
+  .btn-way-two{
+    margin-left: -10px;
+  }
+}
+
+.filters{
+  margin:0 20px 20px 20px;
+  border: solid black 1px;
+  background-color:rgba(246, 226, 146, 0.43);
+}
+
+.range-filter{
+  margin:0 20px 20px 20px;
+  height:25%;
+  border:solid black 1px;
+  background-color:rgba(246, 226, 146, 0.43);
+  h5{
+    width: 80%;
+    margin-left: 34px;
+    margin-top:20px;
+  }
+  .rz-slider{
+    width: 80%;
+    margin-left: 34px;
+    margin-bottom: 20px;
+    margin-top: 70px;
+  }
+}
+
+.container{
+  margin-top:20px;
+  display:block;
+  width:80%;
+}
+
+.btnSearch{
+  width:80px;
+  height:30px;
+  display:block;
+  margin-top:20px;
+  margin-left: 34px;
+  margin-bottom:20px;
+  background-color:#061775;
+  color:white;
+}
+
+.active{
+  background-color: #061775;
+  border-color:#061775;
+  color:white;
+}
+
+.error{
+  color:red;
+  margin-left: 34px;
+}
